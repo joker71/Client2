@@ -1,4 +1,4 @@
-#define WIN32_LEAN_AND_MEAN
+﻿#define WIN32_LEAN_AND_MEAN
 
 #include <windows.h>
 #include <winsock2.h>
@@ -68,15 +68,16 @@ int main(int argc, char** argv)
 	//Gui nhan du lieu
 	string myString;
 	while (1) {
-		//Nhap ten
+		//Nhap xau dau vao  
 		cout << "\nNhap xau cua ban: ";
+		//cin.ignore();
 		getline(cin, myString);
 
 		send(ConnectSocket, myString.c_str(), myString.size(), MSG_DONTROUTE);
 		char connectedClient[256];
 		recv(ConnectSocket, connectedClient, 256, 0);
 		cout << "\nNhan tu server: " << connectedClient;
-	}//while(1){
+	}
 
 
 	// cleanup
